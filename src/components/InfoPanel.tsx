@@ -73,16 +73,3 @@ export function InfoPanel({ spectralClass, temperature, luminosity, radius, mass
           {feedbackText}
         </p>
       </div>
-
-      {onOpenHRDiagram && (
-        <button 
-          onClick={onOpenHRDiagram}
-          className="w-full flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-700 text-white py-3 px-4 rounded-lg font-bold transition-all border border-slate-600 shadow-lg hover:shadow-xl group"
-        >
-          <LineChart size={18} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
-          <span className="tracking-widest uppercase text-xs sm:text-sm">Show in HR Diagram</span>
-        </button>
-      )}
-    </div>
-  );
-}
