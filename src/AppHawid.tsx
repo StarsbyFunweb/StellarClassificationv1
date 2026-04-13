@@ -4,7 +4,6 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import { Star } from './components/StarCanvas';
 import { Controls } from './components/Controls';
 import { InfoPanel } from './components/InfoPanel';
-import { HRDiagramModal } from './components/HRDiagramModal';
 import { calcMainSequence, applyAgeEffects, getSpectralClass, getFeedbackText, SUN_TEMP, tempToRGB, getAccurateStarClassification } from './lib/physics';
 
 export default function App() {
@@ -17,7 +16,6 @@ export default function App() {
   const [radius, setRadius] = useState<number>(1);
   const [luminosity, setLuminosity] = useState<number>(1);
   
-  const [isHRModalOpen, setIsHRModalOpen] = useState(false);
 
   // Derived properties for display
   const spectralClass = useMemo(() => getSpectralClass(temperature), [temperature]);
@@ -161,15 +159,3 @@ export default function App() {
           boxShadow: `0 -4px 30px -10px ${starColorHex}60`
         }}
       />
-
-      {/* Modals */}
-      <HRDiagramModal 
-        isOpen={isHRModalOpen} 
-        onClose={() => setIsHRModalOpen(false)} 
-        temperature={temperature} 
-        luminosity={luminosity} 
-        starColorHex={starColorHex} 
-      />
-    </div>
-  );
-}
